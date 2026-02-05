@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Derivaldo Mendonça - Ministério do Turismo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -15,28 +15,32 @@
         }
 
         body {
-            background-color: #003366; /* Azul oficial do governo */
+            background-color: #003366; /* Azul oficial */
+            height: 100vh; /* Altura exata da tela */
+            width: 100vw;
+            overflow: hidden; /* PROÍBE A ROLAGEM */
             display: flex;
             justify-content: center;
-            min-height: 100vh;
+            align-items: center;
         }
 
         .card-container {
             background-color: #003366;
             width: 100%;
-            max-width: 400px; 
-            text-align: center;
+            height: 100%;
+            max-width: 500px; 
             position: relative;
-            padding-bottom: 60px;
-            display: flex;
-            flex-direction: column;
+            display: flex; /* Transforma em flexbox para organizar */
+            flex-direction: column; /* Organiza um embaixo do outro */
             align-items: center;
+            justify-content: space-between; /* Distribui o espaço sobrando */
+            padding-bottom: 20px;
         }
 
         /* --- Topo Curvo --- */
         .header-bg {
-            background-color: #f8f9fa; /* Fundo claro */
-            height: 260px;
+            background-color: #f8f9fa;
+            height: 35%; /* Ocupa 35% da altura da tela */
             width: 100%;
             border-bottom-left-radius: 50% 15%;
             border-bottom-right-radius: 50% 15%;
@@ -50,15 +54,19 @@
         .profile-section {
             position: relative;
             z-index: 1; 
-            margin-top: 50px;
+            margin-top: 8vh; /* Margem relativa à altura da tela (8%) */
+            flex-shrink: 0; /* Impede a foto de amassar */
         }
 
         .profile-img {
-            width: 180px;
-            height: 180px;
+            /* Tamanho responsivo: 22% da altura da tela */
+            width: 22vh; 
+            height: 22vh;
+            max-width: 180px; /* Limite máximo */
+            max-height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 6px solid #f8f9fa;
+            border: 5px solid #f8f9fa;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
@@ -66,26 +74,27 @@
         .info-section {
             position: relative;
             z-index: 1;
-            margin-top: 25px;
             color: #ffffff;
             padding: 0 20px;
+            text-align: center;
+            flex-shrink: 0;
         }
 
         .name {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .title {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 400;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: #d1e0e0;
-            line-height: 1.4;
+            line-height: 1.3;
             max-width: 300px;
             margin: 0 auto;
         }
@@ -94,26 +103,24 @@
         .icons-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            width: 220px;
-            margin: 40px auto;
+            gap: 20px;
+            margin: 10px auto; /* Espaçamento automático */
             position: relative;
             z-index: 1;
         }
 
         .icon-btn {
             background-color: #ffffff;
-            width: 85px;
-            height: 85px;
+            width: 75px; /* Levemente menor para garantir que caiba */
+            height: 75px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             color: #003366;
-            font-size: 36px;
-            margin: 0 auto;
-            transition: transform 0.2s, background-color 0.2s;
+            font-size: 32px;
+            transition: transform 0.2s;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
@@ -124,18 +131,25 @@
 
         /* --- Logo do Ministério (Rodapé) --- */
         .footer-logo {
-            margin-top: 40px;
-            margin-bottom: 20px;
             position: relative;
             z-index: 1;
-            padding: 0 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px; /* Espacinho final */
         }
 
         .gov-logo {
-            max-width: 200px;
+            max-width: 180px;
             height: auto;
-            /* Removi o filtro que deixava branco */
+            max-height: 8vh; /* Limita altura para não estourar */
             opacity: 0.9;
+        }
+        
+        /* Ajuste para telas muito pequenas (iPhone SE, etc) */
+        @media (max-height: 600px) {
+            .name { font-size: 20px; }
+            .title { font-size: 10px; }
+            .icon-btn { width: 60px; height: 60px; font-size: 26px; }
+            .profile-img { width: 18vh; height: 18vh; }
         }
     </style>
 </head>
