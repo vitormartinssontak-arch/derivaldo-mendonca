@@ -23,12 +23,12 @@
 
         body {
             background-color: var(--gov-blue);
-            height: 100dvh; /* Altura total exata da tela */
+            height: 100dvh;
             width: 100vw;
             overflow: hidden; /* Trava a rolagem */
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Alinha ao topo */
+            align-items: flex-start;
         }
 
         .card-container {
@@ -46,20 +46,20 @@
         .header-section {
             background-color: #ffffff;
             width: 100%;
-            padding: 4vh 20px 3vh 20px;
+            padding: 5vh 20px 3vh 20px;
             text-align: center;
             border-bottom: 4px solid var(--gov-accent);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             z-index: 2;
+            flex-shrink: 0; /* Garante que o cabeçalho não amasse */
         }
 
-        /* --- Foto de Perfil --- */
         .profile-img {
             width: 16vh;
             height: 16vh;
-            max-width: 140px;
-            max-height: 140px;
+            max-width: 130px;
+            max-height: 130px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #fff;
@@ -67,9 +67,8 @@
             margin-bottom: 15px;
         }
 
-        /* --- Textos --- */
         .name {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             color: var(--gov-blue);
             text-transform: uppercase;
@@ -78,85 +77,113 @@
         }
 
         .title {
-            font-size: 12px;
-            font-weight: 500;
+            font-size: 11px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: var(--text-secondary);
             line-height: 1.4;
             max-width: 320px;
             margin: 0 auto;
         }
 
-        /* --- Área dos Botões --- */
+        /* --- Área de Ações --- */
         .actions-area {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centraliza verticalmente no espaço azul */
+            align-items: center;
             width: 100%;
-            /* Ajustei o padding para garantir que os botões não batam na logo */
-            padding-bottom: 15vh; 
+            padding-bottom: 80px; /* Espaço para a logo do rodapé */
         }
 
+        /* Texto de Chamada (CTA) */
+        .cta-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* Grid 2x2 para preencher melhor o espaço */
         .icons-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            width: 90%;
-            max-width: 360px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr; /* Duas colunas */
+            gap: 25px 40px; /* Espaçamento vertical e horizontal */
+            width: auto;
+        }
+
+        /* Wrapper do botão + texto */
+        .icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            group; /* Para animação */
         }
 
         .icon-btn {
             background-color: #ffffff;
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
+            width: 65px;
+            height: 65px;
+            border-radius: 16px; /* Squircle moderno */
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
             color: var(--gov-blue);
-            font-size: 26px;
+            font-size: 28px;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 8px;
         }
 
-        .icon-btn:hover {
-            transform: translateY(-3px);
+        /* Texto abaixo do ícone */
+        .icon-label {
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Efeito de clique/toque */
+        .icon-wrapper:active .icon-btn {
+            transform: scale(0.95);
             background-color: var(--gov-accent);
             color: #fff;
         }
 
-        /* --- Logo do Ministério (CORREÇÃO DE ALINHAMENTO) --- */
+        /* --- Logo do Ministério (Rodapé) --- */
         .footer-logo {
             position: absolute;
-            bottom: 0; /* Colado no fundo da tela */
+            bottom: 0;
             left: 0;
-            width: 100%; /* Largura total */
+            width: 100%;
             display: flex;
             justify-content: center;
             z-index: 10;
-            padding: 0; /* REMOVIDO O PADDING LATERAL */
-            background-color: white; /* Garante fundo branco caso a imagem tenha transparência */
+            background-color: white;
+            padding-top: 5px; /* Respiro superior */
         }
 
         .gov-logo {
-            width: 100%; /* Força a imagem a ocupar 100% da largura disponível */
+            width: 100%;
             height: auto;
-            object-fit: cover; /* Cobre todo o espaço */
-            display: block; /* Remove espaços extras de linha */
+            max-height: 12vh; /* Limite de altura para telas pequenas */
+            object-fit: cover;
+            display: block;
         }
         
-        /* Ajustes para telas muito pequenas */
+        /* Ajustes para telas muito pequenas (iPhone SE, etc) */
         @media (max-height: 600px) {
-            .header-section { padding: 2vh 20px; }
-            .profile-img { width: 14vh; height: 14vh; margin-bottom: 10px; }
+            .header-section { padding: 3vh 20px; }
+            .profile-img { width: 12vh; height: 12vh; }
             .name { font-size: 18px; }
-            .title { font-size: 10px; }
-            .icon-btn { width: 50px; height: 50px; font-size: 22px; }
+            .icon-btn { width: 55px; height: 55px; font-size: 24px; }
+            .icons-grid { gap: 15px 30px; }
+            .cta-text { margin-bottom: 15px; }
         }
     </style>
 </head>
@@ -167,25 +194,32 @@
         <div class="header-section">
             <img src="foto.jpeg.png" alt="Derivaldo Mendonça" class="profile-img">
             <h1 class="name">Derivaldo Mendonça</h1>
-            <p class="title">Diretor de Marketing, Eventos e Expansão Digital</p>
+            <p class="title">Diretor de Marketing, Eventos <br> e Expansão Digital</p>
         </div>
 
         <div class="actions-area">
+            
+            <p class="cta-text">Clique para entrar em contato</p>
+
             <div class="icons-grid">
-                <a href="https://wa.me/558381030070" class="icon-btn" target="_blank" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
+                <a href="https://wa.me/558381030070" class="icon-wrapper" target="_blank">
+                    <div class="icon-btn"><i class="fab fa-whatsapp"></i></div>
+                    <span class="icon-label">WhatsApp</span>
                 </a>
 
-                <a href="mailto:derivaldo.neto@turismo.gov.br" class="icon-btn" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
+                <a href="mailto:derivaldo.neto@turismo.gov.br" class="icon-wrapper">
+                    <div class="icon-btn"><i class="fas fa-envelope"></i></div>
+                    <span class="icon-label">E-mail</span>
                 </a>
 
-                <a href="https://www.gov.br/turismo/pt-br" class="icon-btn" target="_blank" aria-label="Site do Ministério">
-                    <i class="fas fa-globe"></i>
+                <a href="https://www.gov.br/turismo/pt-br" class="icon-wrapper" target="_blank">
+                    <div class="icon-btn"><i class="fas fa-globe"></i></div>
+                    <span class="icon-label">Site Oficial</span>
                 </a>
 
-                <a href="https://maps.app.goo.gl/n25UBfByLYrCCdG29" class="icon-btn" target="_blank" aria-label="Localização">
-                    <i class="fas fa-map-marker-alt"></i>
+                <a href="https://maps.app.goo.gl/n25UBfByLYrCCdG29" class="icon-wrapper" target="_blank">
+                    <div class="icon-btn"><i class="fas fa-map-marker-alt"></i></div>
+                    <span class="icon-label">Endereço</span>
                 </a>
             </div>
         </div>
