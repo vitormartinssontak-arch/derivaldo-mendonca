@@ -6,24 +6,33 @@
     <title>Derivaldo Mendonça - Ministério do Turismo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* --- Configurações Gerais --- */
+        :root {
+            --gov-blue: #003366; /* Azul oficial */
+            --gov-accent: #ffc107; /* Amarelo/Dourado oficial */
+            --text-dark: #212529;
+            --text-secondary: #6c757d;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
-            background-color: #003366;
-            height: 100dvh; /* Altura total da tela */
+            background-color: var(--gov-blue);
+            height: 100dvh; /* Altura total exata da tela */
             width: 100vw;
-            overflow: hidden; /* Sem rolagem */
+            overflow: hidden; /* Trava a rolagem */
             display: flex;
             justify-content: center;
+            align-items: flex-start; /* Alinha ao topo */
         }
 
         .card-container {
-            background-color: #003366;
+            background-color: var(--gov-blue);
             width: 100%;
             height: 100%;
             max-width: 500px; 
@@ -33,142 +42,155 @@
             align-items: center;
         }
 
-        /* --- Topo Curvo --- */
-        .header-bg {
-            background-color: #f8f9fa;
-            height: 30%; /* Reduzi levemente para dar espaço para a logo grande */
+        /* --- Cabeçalho Institucional (Branco com detalhe dourado) --- */
+        .header-section {
+            background-color: #ffffff;
             width: 100%;
-            border-bottom-left-radius: 50% 15%;
-            border-bottom-right-radius: 50% 15%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 0;
+            padding: 4vh 20px 3vh 20px; /* Espaçamento interno responsivo */
+            text-align: center;
+            /* Filete dourado institucional na borda inferior */
+            border-bottom: 4px solid var(--gov-accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+            position: relative;
+            z-index: 2;
         }
 
         /* --- Foto de Perfil --- */
-        .profile-section {
-            position: relative;
-            z-index: 1; 
-            margin-top: 8vh; 
-        }
-
         .profile-img {
-            width: 18vh;
-            height: 18vh;
-            max-width: 150px;
-            max-height: 150px;
+            width: 16vh; /* Tamanho responsivo */
+            height: 16vh;
+            max-width: 140px;
+            max-height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #f8f9fa;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            /* Borda dupla: branca fina interna e azul externa */
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 3px var(--gov-blue);
+            margin-bottom: 15px;
         }
 
         /* --- Textos --- */
-        .info-section {
-            position: relative;
-            z-index: 1;
-            color: #ffffff;
-            padding: 10px 20px 0 20px;
-            text-align: center;
-        }
-
         .name {
             font-size: 22px;
-            font-weight: 700;
+            font-weight: 800; /* Mais negrito */
+            color: var(--gov-blue); /* Nome na cor oficial */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             margin-bottom: 5px;
         }
 
         .title {
-            font-size: 11px;
-            font-weight: 400;
+            font-size: 12px;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #d1e0e0;
-            line-height: 1.3;
-            max-width: 300px;
+            color: var(--text-secondary); /* Cor cinza sóbria */
+            line-height: 1.4;
+            max-width: 320px;
             margin: 0 auto;
         }
 
-        /* --- Botões de Ícones --- */
+        /* --- Área dos Botões (Fundo Azul) --- */
+        .actions-area {
+            flex-grow: 1; /* Ocupa o espaço restante */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centraliza os botões verticalmente no espaço azul */
+            width: 100%;
+            padding-bottom: 60px; /* Espaço para a logo não cobrir */
+        }
+
         .icons-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 3vh;
-            position: relative;
-            z-index: 1;
+            grid-template-columns: repeat(4, 1fr); /* 4 itens em linha para ser mais compacto */
+            gap: 15px;
+            width: 90%;
+            max-width: 360px;
+            margin: 0 auto;
         }
 
         .icon-btn {
             background-color: #ffffff;
-            width: 65px; /* Ajustei levemente para equilibrar com a logo grande */
-            height: 65px;
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px; /* Bordas levemente arredondadas (squircle) é mais moderno que círculo total */
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            color: #003366;
-            font-size: 28px;
-            transition: transform 0.2s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            color: var(--gov-blue);
+            font-size: 26px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            margin: 0 auto; /* Centraliza na grid */
         }
 
         .icon-btn:hover {
-            transform: scale(1.1);
-            background-color: #e6e6e6;
+            transform: translateY(-3px); /* Efeito sutil de levantar ao passar o mouse */
+            background-color: var(--gov-accent); /* Fica dourado ao passar o mouse */
+            color: #fff;
         }
 
-        /* --- Logo do Ministério (EXPANDIDA) --- */
+        /* --- Logo do Ministério (Rodapé Ancorado) --- */
         .footer-logo {
             position: absolute;
-            bottom: 20px; /* Distância do fundo */
+            bottom: 15px; /* Distância do fundo */
             left: 0;
             width: 100%;
             display: flex;
             justify-content: center;
             z-index: 10;
-            padding: 0 10px; /* Margem de segurança nas laterais */
+            padding: 0 20px;
         }
 
         .gov-logo {
-            width: 90%; /* Ocupa 90% da largura da tela */
-            max-width: 400px; /* Limite para não ficar gigante em tablets */
-            height: auto; /* Altura ajusta sozinha para não distorcer */
-            object-fit: contain; /* Garante que a imagem apareça inteira */
+            width: 90%; /* Ocupa 90% da largura */
+            max-width: 380px;
+            height: auto;
+            object-fit: contain;
+            /* Filtro para garantir que a logo fique branca sobre o fundo azul */
+            filter: brightness(0) invert(1); 
+            opacity: 0.9;
         }
         
-        /* Ajuste para telas pequenas */
+        /* Ajustes para telas muito pequenas */
         @media (max-height: 600px) {
-             .profile-img { width: 15vh; height: 15vh; }
-             .name { font-size: 18px; }
-             .icon-btn { width: 55px; height: 55px; }
-             .gov-logo { width: 85%; bottom: 10px; }
+            .header-section { padding: 2vh 20px; }
+            .profile-img { width: 14vh; height: 14vh; margin-bottom: 10px; }
+            .name { font-size: 18px; }
+            .title { font-size: 10px; }
+            .icon-btn { width: 50px; height: 50px; font-size: 22px; }
         }
     </style>
 </head>
 <body>
 
     <div class="card-container">
-        <div class="header-bg"></div>
-
-        <div class="profile-section">
+        
+        <div class="header-section">
             <img src="foto.jpeg.png" alt="Derivaldo Mendonça" class="profile-img">
-        </div>
-
-        <div class="info-section">
             <h1 class="name">Derivaldo Mendonça</h1>
             <p class="title">Diretor de Marketing, Eventos e Expansão Digital</p>
         </div>
 
-        <div class="icons-grid">
-            <a href="https://wa.me/558381030070" class="icon-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="mailto:derivaldo.neto@turismo.gov.br" class="icon-btn"><i class="fas fa-envelope"></i></a>
-            <a href="https://www.gov.br/turismo/pt-br" class="icon-btn" target="_blank"><i class="fas fa-globe"></i></a>
-            <a href="https://maps.app.goo.gl/n25UBfByLYrCCdG29" class="icon-btn" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
+        <div class="actions-area">
+            <div class="icons-grid">
+                <a href="https://wa.me/558381030070" class="icon-btn" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+                <a href="mailto:derivaldo.neto@turismo.gov.br" class="icon-btn" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <a href="https://www.gov.br/turismo/pt-br" class="icon-btn" target="_blank" aria-label="Site do Ministério">
+                    <i class="fas fa-globe"></i>
+                </a>
+
+                <a href="https://maps.app.goo.gl/n25UBfByLYrCCdG29" class="icon-btn" target="_blank" aria-label="Localização">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
         </div>
 
         <div class="footer-logo">
