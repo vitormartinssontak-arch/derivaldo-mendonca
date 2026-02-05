@@ -76,3 +76,105 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .title {
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d1e0e0;
+            line-height: 1.4;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        /* --- Botões de Ícones --- */
+        .icons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            width: 220px;
+            margin: 40px auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-btn {
+            background-color: #ffffff;
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #003366;
+            font-size: 36px;
+            margin: 0 auto;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+            background-color: #e6e6e6;
+        }
+
+        /* --- Logo do Ministério (Rodapé) --- */
+        .footer-logo {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+
+        .gov-logo {
+            max-width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="header-bg"></div>
+
+        <div class="profile-section">
+            <img src="foto.jpg" alt="Derivaldo Mendonça" class="profile-img">
+        </div>
+
+        <div class="info-section">
+            <h1 class="name">Derivaldo Mendonça</h1>
+            <p class="title">Diretor de Marketing, Eventos e Expansão Digital</p>
+        </div>
+
+        <div class="icons-grid">
+            <a href="https://wa.me/558381030070" class="icon-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="mailto:derivaldo.neto@turismo.gov.br" class="icon-btn">
+                <i class="fas fa-envelope"></i>
+            </a>
+
+            <a href="https://www.gov.br/turismo/pt-br" class="icon-btn" target="_blank">
+                <i class="fas fa-globe"></i>
+            </a>
+
+            <a href="https://maps.app.goo.gl/n25UBfByLYrCCdG29" class="icon-btn" target="_blank">
+                <i class="fas fa-map-marker-alt"></i>
+            </a>
+        </div>
+
+        <div class="footer-logo">
+            <img src="logo.png" alt="Ministério do Turismo" class="gov-logo">
+        </div>
+    </div>
+
+</body>
+</html>
