@@ -95,7 +95,8 @@
             flex-direction: column;
             justify-content: center;
             width: 100%;
-            padding-bottom: 80px; /* Aumentei o espaço para a logo */
+            /* Ajustei o padding para garantir que os botões não batam na logo */
+            padding-bottom: 15vh; 
         }
 
         .icons-grid {
@@ -129,24 +130,24 @@
             color: #fff;
         }
 
-        /* --- Logo do Ministério (Rodapé Ancorado) --- */
+        /* --- Logo do Ministério (CORREÇÃO DE ALINHAMENTO) --- */
         .footer-logo {
             position: absolute;
-            bottom: 20px; /* Distância do fundo */
+            bottom: 0; /* Colado no fundo da tela */
             left: 0;
-            width: 100%;
+            width: 100%; /* Largura total */
             display: flex;
             justify-content: center;
             z-index: 10;
-            padding: 0 20px; /* Mesmo padding lateral do cabeçalho */
+            padding: 0; /* REMOVIDO O PADDING LATERAL */
+            background-color: white; /* Garante fundo branco caso a imagem tenha transparência */
         }
 
         .gov-logo {
-            width: 100%; /* Ocupa toda a largura do container (que tem padding de 20px) */
+            width: 100%; /* Força a imagem a ocupar 100% da largura disponível */
             height: auto;
-            object-fit: contain;
-            /* Filtro removido para cor original */
-            opacity: 1.0;
+            object-fit: cover; /* Cobre todo o espaço */
+            display: block; /* Remove espaços extras de linha */
         }
         
         /* Ajustes para telas muito pequenas */
@@ -156,7 +157,6 @@
             .name { font-size: 18px; }
             .title { font-size: 10px; }
             .icon-btn { width: 50px; height: 50px; font-size: 22px; }
-            .actions-area { padding-bottom: 60px; }
         }
     </style>
 </head>
