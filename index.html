@@ -52,7 +52,7 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             z-index: 2;
-            flex-shrink: 0; /* Garante que o cabeçalho não amasse */
+            flex-shrink: 0;
         }
 
         .profile-img {
@@ -92,10 +92,11 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza verticalmente no espaço azul */
+            justify-content: center;
             align-items: center;
             width: 100%;
-            padding-bottom: 80px; /* Espaço para a logo do rodapé */
+            /* Aumentei um pouco o padding inferior para garantir que os textos não colem na logo */
+            padding-bottom: 90px; 
         }
 
         /* Texto de Chamada (CTA) */
@@ -108,11 +109,11 @@
             font-weight: 600;
         }
 
-        /* Grid 2x2 para preencher melhor o espaço */
+        /* Grid 2x2 */
         .icons-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Duas colunas */
-            gap: 25px 40px; /* Espaçamento vertical e horizontal */
+            grid-template-columns: 1fr 1fr;
+            gap: 25px 40px;
             width: auto;
         }
 
@@ -122,14 +123,14 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            group; /* Para animação */
+            group;
         }
 
         .icon-btn {
             background-color: #ffffff;
             width: 65px;
             height: 65px;
-            border-radius: 16px; /* Squircle moderno */
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -140,7 +141,6 @@
             margin-bottom: 8px;
         }
 
-        /* Texto abaixo do ícone */
         .icon-label {
             color: #ffffff;
             font-size: 12px;
@@ -148,14 +148,13 @@
             letter-spacing: 0.5px;
         }
 
-        /* Efeito de clique/toque */
         .icon-wrapper:active .icon-btn {
             transform: scale(0.95);
             background-color: var(--gov-accent);
             color: #fff;
         }
 
-        /* --- Logo do Ministério (Rodapé) --- */
+        /* --- Logo do Ministério (Rodapé LIMPO) --- */
         .footer-logo {
             position: absolute;
             bottom: 0;
@@ -164,19 +163,20 @@
             display: flex;
             justify-content: center;
             z-index: 10;
-            background-color: white;
-            padding-top: 5px; /* Respiro superior */
+            /* Removi o background branco e o padding superior */
+            background-color: transparent; 
+            padding: 0;
         }
 
         .gov-logo {
             width: 100%;
             height: auto;
-            max-height: 12vh; /* Limite de altura para telas pequenas */
+            max-height: 12vh;
             object-fit: cover;
             display: block;
         }
         
-        /* Ajustes para telas muito pequenas (iPhone SE, etc) */
+        /* Ajustes para telas muito pequenas */
         @media (max-height: 600px) {
             .header-section { padding: 3vh 20px; }
             .profile-img { width: 12vh; height: 12vh; }
