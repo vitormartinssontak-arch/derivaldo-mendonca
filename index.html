@@ -42,28 +42,26 @@
             align-items: center;
         }
 
-        /* --- Cabeçalho Institucional (Branco com detalhe dourado) --- */
+        /* --- Cabeçalho Institucional --- */
         .header-section {
             background-color: #ffffff;
             width: 100%;
-            padding: 4vh 20px 3vh 20px; /* Espaçamento interno responsivo */
+            padding: 4vh 20px 3vh 20px;
             text-align: center;
-            /* Filete dourado institucional na borda inferior */
             border-bottom: 4px solid var(--gov-accent);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             position: relative;
             z-index: 2;
         }
 
         /* --- Foto de Perfil --- */
         .profile-img {
-            width: 16vh; /* Tamanho responsivo */
+            width: 16vh;
             height: 16vh;
             max-width: 140px;
             max-height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            /* Borda dupla: branca fina interna e azul externa */
             border: 3px solid #fff;
             box-shadow: 0 0 0 3px var(--gov-blue);
             margin-bottom: 15px;
@@ -72,8 +70,8 @@
         /* --- Textos --- */
         .name {
             font-size: 22px;
-            font-weight: 800; /* Mais negrito */
-            color: var(--gov-blue); /* Nome na cor oficial */
+            font-weight: 800;
+            color: var(--gov-blue);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 5px;
@@ -84,25 +82,25 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text-secondary); /* Cor cinza sóbria */
+            color: var(--text-secondary);
             line-height: 1.4;
             max-width: 320px;
             margin: 0 auto;
         }
 
-        /* --- Área dos Botões (Fundo Azul) --- */
+        /* --- Área dos Botões --- */
         .actions-area {
-            flex-grow: 1; /* Ocupa o espaço restante */
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza os botões verticalmente no espaço azul */
+            justify-content: center;
             width: 100%;
-            padding-bottom: 60px; /* Espaço para a logo não cobrir */
+            padding-bottom: 80px; /* Aumentei o espaço para a logo */
         }
 
         .icons-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 itens em linha para ser mais compacto */
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             width: 90%;
             max-width: 360px;
@@ -113,7 +111,7 @@
             background-color: #ffffff;
             width: 60px;
             height: 60px;
-            border-radius: 12px; /* Bordas levemente arredondadas (squircle) é mais moderno que círculo total */
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -122,35 +120,33 @@
             font-size: 26px;
             transition: all 0.2s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            margin: 0 auto; /* Centraliza na grid */
+            margin: 0 auto;
         }
 
         .icon-btn:hover {
-            transform: translateY(-3px); /* Efeito sutil de levantar ao passar o mouse */
-            background-color: var(--gov-accent); /* Fica dourado ao passar o mouse */
+            transform: translateY(-3px);
+            background-color: var(--gov-accent);
             color: #fff;
         }
 
         /* --- Logo do Ministério (Rodapé Ancorado) --- */
         .footer-logo {
             position: absolute;
-            bottom: 15px; /* Distância do fundo */
+            bottom: 20px; /* Distância do fundo */
             left: 0;
             width: 100%;
             display: flex;
             justify-content: center;
             z-index: 10;
-            padding: 0 20px;
+            padding: 0 20px; /* Mesmo padding lateral do cabeçalho */
         }
 
         .gov-logo {
-            width: 90%; /* Ocupa 90% da largura */
-            max-width: 380px;
+            width: 100%; /* Ocupa toda a largura do container (que tem padding de 20px) */
             height: auto;
             object-fit: contain;
-            /* Filtro para garantir que a logo fique branca sobre o fundo azul */
-            filter: brightness(0) invert(1); 
-            opacity: 0.9;
+            /* Filtro removido para cor original */
+            opacity: 1.0;
         }
         
         /* Ajustes para telas muito pequenas */
@@ -160,6 +156,7 @@
             .name { font-size: 18px; }
             .title { font-size: 10px; }
             .icon-btn { width: 50px; height: 50px; font-size: 22px; }
+            .actions-area { padding-bottom: 60px; }
         }
     </style>
 </head>
