@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartão de Visita Digital</title>
+    <title>Derivaldo Mendonça - Ministério do Turismo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* --- Configurações Gerais --- */
@@ -15,27 +15,29 @@
         }
 
         body {
-            background-color: #00264d; /* Azul escuro do fundo inferior */
+            background-color: #003366; /* Azul oficial do governo */
             display: flex;
             justify-content: center;
             min-height: 100vh;
         }
 
         .card-container {
-            background-color: #00264d;
+            background-color: #003366;
             width: 100%;
-            max-width: 400px; /* Tamanho típico de celular */
+            max-width: 400px; 
             text-align: center;
             position: relative;
-            padding-bottom: 40px;
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         /* --- Topo Curvo --- */
         .header-bg {
-            background-color: #eef2f5; /* Cinza claro do topo */
-            height: 280px;
+            background-color: #f8f9fa; /* Fundo claro */
+            height: 260px;
             width: 100%;
-            /* A mágica da curva para baixo */
             border-bottom-left-radius: 50% 15%;
             border-bottom-right-radius: 50% 15%;
             position: absolute;
@@ -47,127 +49,30 @@
         /* --- Foto de Perfil --- */
         .profile-section {
             position: relative;
-            z-index: 1; /* Fica acima do fundo */
-            margin-top: 60px;
+            z-index: 1; 
+            margin-top: 50px;
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #eef2f5; /* Borda cinza para mesclar */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 6px solid #f8f9fa;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         /* --- Textos --- */
         .info-section {
             position: relative;
             z-index: 1;
-            margin-top: 20px;
+            margin-top: 25px;
             color: #ffffff;
+            padding: 0 20px;
         }
 
         .name {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        .title {
-            font-size: 14px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: #b0c4de;
-        }
-
-        /* --- Botões de Ícones --- */
-        .icons-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            width: 200px;
-            margin: 40px auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .icon-btn {
-            background-color: #ffffff;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: #00264d; /* Cor do ícone */
-            font-size: 32px;
-            margin: 0 auto;
-            transition: transform 0.2s, background-color 0.2s;
-        }
-
-        .icon-btn:hover {
-            transform: scale(1.1);
-            background-color: #f0f0f0;
-        }
-
-        /* --- Botão Inferior (Instrução) --- */
-        .footer-btn {
-            background-color: #eef2f5;
-            color: #00264d;
-            padding: 12px 25px;
-            border-radius: 25px;
-            display: inline-block;
-            font-weight: 600;
-            font-size: 14px;
-            text-transform: uppercase;
-            margin-top: 20px;
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="card-container">
-        <div class="header-bg"></div>
-
-        <div class="profile-section">
-            <img src="https://via.placeholder.com/200" alt="Foto de Perfil" class="profile-img">
-        </div>
-
-        <div class="info-section">
-            <h1 class="name">Seu Nome</h1>
-            <p class="title">Sua Profissão</p>
-        </div>
-
-        <div class="icons-grid">
-            <a href="tel:+5561999999999" class="icon-btn">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-
-            <a href="mailto:seuemail@exemplo.com" class="icon-btn">
-                <i class="fas fa-envelope"></i>
-            </a>
-
-            <a href="https://seusite.com.br" class="icon-btn" target="_blank">
-                <i class="fas fa-globe"></i>
-            </a>
-
-            <a href="https://maps.google.com" class="icon-btn" target="_blank">
-                <i class="fas fa-map-marker-alt"></i>
-            </a>
-        </div>
-
-        <div class="footer-btn">
-            Clique nos ícones para interagir
-        </div>
-    </div>
-
-</body>
-</html>
